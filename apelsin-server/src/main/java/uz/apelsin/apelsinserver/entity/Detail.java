@@ -1,0 +1,25 @@
+package uz.apelsin.apelsinserver.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import uz.apelsin.apelsinserver.entity.template.AbsTemplate;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+public class Detail extends AbsTemplate {
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Order order;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Product product;
+
+    private int quantity;
+
+}
